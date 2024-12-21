@@ -78,7 +78,7 @@ const Story = () => {
           <img
            src="/image/tiger.jpg" 
            alt="tiger"
-           className="w-full h-full object-cover rounded-lg " />
+           className="w-full  h-full object-cover rounded-lg " />
          
         </div>
       </div>
