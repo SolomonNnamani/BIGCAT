@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Headbold";
+    src: url("/fonts/Montserrat.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "general";
+    src: url("/fonts/Roboto.ttf") format("truetype");
+  }
+}
+
+body,
+html {
+  font-family: "general";
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .containerBtn {
+    @apply bg-yellow-500 w-40 py-2 rounded-3xl my-4
+  flex  justify-center items-center tracking-wider
+  gap-2 cursor-pointer;
+    font-family: "Montserrat", serif;
+  }
+}
+
+.fixed {
+  position: fixed;
+  z-index: 10;
+}
