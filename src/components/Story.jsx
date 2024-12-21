@@ -43,7 +43,7 @@ const Story = () => {
     <div
     id="Story"
       ref={storyContainerRef}
-      className=" bg-black py-20 text-white overflow-hidden"
+      className=" bg-black py-20 text-white overflow-hidden  "
     >
 
         <div className="flex justify-center  ">

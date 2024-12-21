@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className=" bg-yellow-600 pb-10 ">
       <div className=" ">
-        <div className="grid grid-cols-4 py-10 px-10  ">
+        <div className="grid grid-cols-2 py-10 px-10 md:grid-cols-4  ">
           <div className=" ">
             <GiLion className=" text-6xl  " />
           </div>

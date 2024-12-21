@@ -264,7 +264,7 @@ const Header = () => {
             </video>
           </div>
           {/*Text */}
-          <div className="z-10 absolute mx-3 mt-16  ">
+          <div className="z-10 absolute mx-3 mt-16 hidden md:block ">
             <h1 className="font-HeadBold text-7xl lg:text-9xl ">INTO THE</h1>
             <p className="md:text-2xl mx-1 ">
               Prowl into the Meta Savannah
