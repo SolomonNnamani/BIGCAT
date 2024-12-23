@@ -7,10 +7,10 @@ gsap.registerPlugin(ScrollTrigger);
 const About = () => {
   const wordsRef = useRef([]);
   const sectionRef = useRef(null);
-  //const leopardRef = useRef(null);
   const imageContainerRef = useRef(null);
   const divImageRef = useRef(null);
 
+  //Word animation
   useEffect(() => {
     gsap.fromTo(
       wordsRef.current,
@@ -38,6 +38,7 @@ const About = () => {
     );
   }, []);
 
+  //Animation for Image increase
   useEffect(() => {
     const imageContainer = imageContainerRef.current;
     const divImage = divImageRef.current;
@@ -48,12 +49,9 @@ const About = () => {
         start: "top top",
         end: "bottom bottom",
         scrub: true,
-        // pin:imageContainer,
-        // markers:false,
         onToggle: ({ isActive }) => {
           if (isActive) {
             const triggerRect = imageContainer.getBoundingClientRect();
-            const scrollTop = window.scrollY;
 
             // Ensure precise positioning
             imageContainer.style.position = "fixed";
@@ -91,8 +89,10 @@ const About = () => {
   }, []);
 
   return (
+    //About Container
     <div ref={sectionRef} id="About" className=" relative  mt-20  ">
       <div className="overflow-hidden">
+        {/*Words */}
         <div className=" flex flex-wrap justify-center bg ">
           {`STEP INTO THE KINGDOM OF THE BIG CATS`
             .split(" ")
@@ -111,7 +111,7 @@ const About = () => {
         </div>
       </div>
 
-      {/*keep off */}
+      {/*Image and text container */}
       <div className="wrapper relative h-[200vh]  z-0 ">
         <div
           ref={imageContainerRef}
@@ -119,7 +119,7 @@ const About = () => {
         >
           <div
             ref={divImageRef}
-            className="absolute  pt-5" // Ensure absolute positioning
+            className="absolute  pt-5"
             style={{
               width: "18rem",
               height: "24rem",
@@ -128,7 +128,6 @@ const About = () => {
             <img
               src={leopard}
               alt="leopard"
-              /* className="w-full h-full object-cover   " */
               style={{
                 width: "100%",
                 height: "100%",

@@ -3,6 +3,7 @@ import Rotation from "./Rotation.jsx";
 
 const Feature = () => {
   return (
+    //Sub-Videos Container
     <div id="Features" className=" bg-black text-white px-12 py-12 my-0 ">
       <div>
         <h1 className=" text-xl font-HeadBold mb-2 lg:text-5xl ">
@@ -48,7 +49,7 @@ const Feature = () => {
           <Rotation>
             <div className="h-52 md:h-98">
               <video
-                autoPlay
+                 autoPlay
                 muted
                 loop
                 className=" w-full  object-cover h-full rounded-lg"
@@ -76,7 +77,7 @@ const Feature = () => {
              border-l border-white rounded-lg "
             >
               <video
-                autoPlay
+                 autoPlay
                 muted
                 loop
                 className=" w-full h-full  object-cover rounded-lg  "
@@ -103,7 +104,7 @@ const Feature = () => {
           <Rotation>
             <div className="h-52 md:h-96 ">
               <video
-                autoPlay
+                 autoPlay
                 muted
                 loop
                 className=" w-full h-full  object-cover  rounded-lg "

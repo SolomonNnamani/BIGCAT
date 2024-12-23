@@ -6,6 +6,7 @@ const sideBar = ["Home", "About", "Features", "Story"];
 
 const Footer = () => {
   return (
+    //Footer Container
     <div className=" bg-yellow-600 pb-10 ">
       <div className=" ">
         <div className="grid grid-cols-2 py-10 px-10 md:grid-cols-4  ">
@@ -46,7 +47,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
+      <p className="text-sm text-center">
+        THIS IS A PRATICE PROJECT, FEEL FREE TO SUPPORT!{" "}
+      </p>
       <div className="text-center text-xl font-bold ">&copy; Solomon,2024.</div>
     </div>
   );

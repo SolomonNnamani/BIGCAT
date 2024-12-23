@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import Rotation from './Rotation.jsx'
+import Rotation from "./Rotation.jsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -7,10 +7,8 @@ gsap.registerPlugin(ScrollTrigger);
 const Story = () => {
   const storyRef = useRef([]);
   const storyContainerRef = useRef(null);
-  //const tigerContainerRef = useRef(null)
-  //const tigerRef = useRef(null);
-  //const [isHovered, setIsHovered] = useState(false)
 
+  //Words Animation
   useEffect(() => {
     gsap.fromTo(
       storyRef.current,
@@ -38,19 +36,18 @@ const Story = () => {
     );
   }, []);
 
- 
   return (
+    //Image container
     <div
-    id="Story"
+      id="Story"
       ref={storyContainerRef}
       className=" bg-black py-20 text-white overflow-hidden  "
     >
-
-        <div className="flex justify-center  ">
-            <p>BIG CAT ODYSSEYS</p>
-        </div><br/>
+      <div className="flex justify-center  ">
+        <p>BIG CAT ODYSSEYS</p>
+      </div>
+      <br />
       <div className=" flex flex-wrap justify-center bg ">
-        
         {`A JOURNEY INTO THE UNTAMED`.split(" ").map((word, index) => (
           <React.Fragment key={index}>
             <h1
@@ -67,23 +64,23 @@ const Story = () => {
         ))}
       </div>
 
-       <Rotation  >
-      <div
-     /* ref={tigerContainerRef} */ 
-      className="flex justify-center items-center px-10 pt-10  " >
+      <Rotation>
         <div
-       /* ref={tigerRef} */
-        className="w-97 h-96 rounded-lg  lg:h-96 lg:w-98 ">
-           
-          <img
-           src="/image/tiger.jpg" 
-           alt="tiger"
-           className="w-full  h-full object-cover rounded-lg " />
-         
+          /* ref={tigerContainerRef} */
+          className="flex justify-center items-center px-10 pt-10  "
+        >
+          <div
+            /* ref={tigerRef} */
+            className="w-97 h-96 rounded-lg  lg:h-96 lg:w-98 "
+          >
+            <img
+              src="/image/tiger.jpg"
+              alt="tiger"
+              className="w-full  h-full object-cover rounded-lg "
+            />
+          </div>
         </div>
-      </div>
       </Rotation>
-    
     </div>
   );
 };

@@ -5,52 +5,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const Header = () => {
+const Header = ({ Click }) => {
   const [displayCount, setDisplayCount] = useState(1);
   const [currentCount, setCurrentCount] = useState(2);
-  const [loading, setLoading] = useState(true);
   const displayRef = useRef(null);
   const currentRef = useRef(null);
   const clipRef = useRef(null);
-  const loadingRef = useRef([]);
 
-  useEffect(() => {
-    const loadingTimeline = gsap.timeline({
-      repeat: -1,
-      yoyo: true,
-    });
-    loadingTimeline
-      .fromTo(
-        loadingRef.current[0],
-        { opacity: 0 },
-        { opacity: 1, duration: 0.3 }
-      )
-      .fromTo(
-        loadingRef.current[1],
-        { opacity: 0 },
-        { opacity: 1, duration: 0.3 }
-      )
-      .fromTo(
-        loadingRef.current[2],
-        { opacity: 0 },
-        { opacity: 1, duration: 0.3 }
-      )
-      .fromTo(
-        loadingRef.current[3],
-        { opacity: 0 },
-        { opacity: 1, duration: 0.3 }
-      )
-      .fromTo(
-        loadingRef.current[4],
-        { opacity: 0 },
-        { opacity: 1, duration: 0.3 }
-      );
-  }, []);
-
-  const handleLoaded = () => {
-    setLoading(false);
-  };
-
+  //Background and Current Display
   const handleClick = () => {
     const transitionTimeline = gsap.timeline({
       onComplete: () => {
@@ -100,6 +62,7 @@ const Header = () => {
     });
   };
 
+  //Mouse movement for clickable Video
   useEffect(() => {
     const currentElement = currentRef.current;
 
@@ -129,7 +92,7 @@ const Header = () => {
       let targetScale;
       if (distance <= maxDistance) {
         //inverse relationship: closer = bigger
-        targetScale = 1 * (1 - distance / maxDistance) + 0.5;
+        targetScale = 0.2 * (1 - distance / maxDistance) + 0.5;
       } else {
         targetScale = 0.5;
       }
@@ -173,6 +136,7 @@ const Header = () => {
     };
   }, []);
 
+  //CLipArt Effect
   useEffect(() => {
     let clipArt = clipRef.current;
     const triggerTimeline = gsap.timeline({
@@ -198,34 +162,11 @@ const Header = () => {
     };
   }, []);
 
+  //Video src
   const getVideos = `/video/maincat_${currentCount}.mp4`;
   return (
+    //Header Container
     <div>
-      {loading && (
-        <div className="flex justify-center items-center absolute z-50  h-screen bg-black w-full  ">
-          <span
-            ref={(el) => (loadingRef.current[0] = el)}
-            className="block w-6 h-6 bg-yellow-400 mx-1 rounded-full"
-          ></span>
-          <span
-            ref={(el) => (loadingRef.current[1] = el)}
-            className="block w-6 h-6 bg-yellow-400 mx-1 rounded-full"
-          ></span>
-          <span
-            ref={(el) => (loadingRef.current[2] = el)}
-            className="block w-6 h-6 bg-yellow-400 mx-1 rounded-full"
-          ></span>
-          <span
-            ref={(el) => (loadingRef.current[3] = el)}
-            className="block w-6 h-6 bg-yellow-400 mx-1 rounded-full"
-          ></span>
-          <span
-            ref={(el) => (loadingRef.current[4] = el)}
-            className="block w-6 h-6 bg-yellow-400 mx-1 rounded-full"
-          ></span>
-        </div>
-      )}
-
       <div id="Home" className="relative bg-slate-200 z-0 text-white  w-full  ">
         <div ref={clipRef} className="h-dvh relative overflow-hidden   ">
           {/*Background Video */}
@@ -233,7 +174,7 @@ const Header = () => {
             <video
               ref={displayRef}
               key={displayCount}
-              onCanPlayThrough={handleLoaded}
+              onCanPlayThrough={Click}
               className="w-full h-dvh object-cover absolute inset-0  "
               autoPlay
               loop

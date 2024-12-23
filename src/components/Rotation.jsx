@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 
+//A Reuseable component. Aid Tilt Rotation
+
 const Rotation = ({
   children,
   className = "",
